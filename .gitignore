@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# runtime / generated
+.specify/cache/
+.specify/runs/
+.specify/output/
