@@ -40,7 +40,7 @@
 - [ ] T011 建立 ProfileForm 與 MealEntryForm 於 app/calories/forms.py
 - [ ] T012 建立 base template 與共用導覽於 app/templates/base.html
 - [ ] T013 建立共用 CSS 與響應式基礎樣式於 app/static/calories/styles.css
-- [ ] T014 [P] 建立 model validation 測試於 app/calories/tests/test_models.py
+- [ ] T014 [P] 建立 model validation 測試於 app/calories/tests/test_models.py，僅涵蓋欄位驗證與唯一約束
 - [ ] T015 [P] 建立 form validation 測試於 app/calories/tests/test_forms.py
 
 **Checkpoint**: 資料模型、forms 與共用 UI 基礎完成，所有使用者故事可開始實作。
@@ -56,7 +56,7 @@
 ### Tests / Verification for User Story 1
 
 - [ ] T016 [P] [US1] 建立 profile 建立與首頁導向測試於 app/calories/tests/test_profile_views.py
-- [ ] T017 [P] [US1] 建立今日記錄新增三餐與總熱量測試於 app/calories/tests/test_record_views.py
+- [ ] T017 [P] [US1] 建立今日記錄新增三餐、餐別小計 helper 與總熱量測試於 app/calories/tests/test_record_views.py
 
 ### Implementation for User Story 1
 
@@ -104,7 +104,7 @@
 
 ### Tests / Verification for User Story 3
 
-- [ ] T033 [P] [US3] 建立統計 aggregation 測試於 app/calories/tests/test_statistics.py
+- [ ] T033 [P] [US3] 建立統計 aggregation 測試於 app/calories/tests/test_statistics.py，涵蓋總熱量、平均每日熱量、記錄天數、三餐分布、最高熱量日期與主要熱量來源餐別
 - [ ] T034 [P] [US3] 建立統計頁 view 與空狀態測試於 app/calories/tests/test_stats_view.py
 
 ### Implementation for User Story 3
@@ -112,7 +112,7 @@
 - [ ] T035 [US3] 實作統計查詢 helper function 於 app/calories/views.py
 - [ ] T036 [US3] 實作 stats view 與 period 參數處理於 app/calories/views.py
 - [ ] T037 [US3] 實作 stats route 於 app/calories/urls.py
-- [ ] T038 [US3] 建立統計頁 template 於 app/templates/calories/stats.html
+- [ ] T038 [US3] 建立統計頁 template 於 app/templates/calories/stats.html，顯示總熱量、平均每日熱量、記錄天數、三餐分布、每日總熱量列表、最高熱量日期與主要熱量來源餐別
 - [ ] T039 [US3] 更新導覽與統計頁樣式於 app/templates/base.html、app/static/calories/styles.css
 
 **Checkpoint**: P1 + P2 + P3 完成，使用者可完成建立資料、記錄餐點、查看統計的完整流程。
@@ -125,8 +125,8 @@
 
 - [ ] T040 [P] 補齊 quickstart 驗證結果與操作說明於 specs/001-calorie-record/quickstart.md
 - [ ] T041 [P] 檢查所有 template 使用者可見文案為正體中文於 app/templates/base.html、app/templates/calories/
-- [ ] T042 執行 Django 測試並修正失敗案例於 app/calories/tests/
-- [ ] T043 執行 docker compose build 與 migrate 驗證於 compose.yaml、Dockerfile
+- [ ] T042 執行 containerized Django 測試 `docker compose exec web python manage.py test` 並修正失敗案例於 app/calories/tests/
+- [ ] T043 執行 `docker compose up --build` 與 `docker compose exec web python manage.py migrate` 驗證於 compose.yaml、Dockerfile
 - [ ] T044 驗證行動與桌面寬度下記錄頁、profile 頁、統計頁不重疊或截斷於 app/static/calories/styles.css
 - [ ] T045 清理非 MVP 複雜度與未使用程式碼於 app/calories/、app/config/
 
