@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}統計 - 每日熱量記錄{% endblock %}
+
+{% block content %}
+<section class="toolbar">
+  <div>
+    <p class="eyebrow">統計期間</p>
+    <h1>最近 {{ statistics.period }} 天</h1>
+  </div>
+  <div class="date-actions">
+    <a class="button {% if statistics.period == 7 %}active{% endif %}" href="{% url 'calories:stats' %}?period=7">7 天</a>
+    <a class="button {% if statistics.period == 30 %}active{% endif %}" href="{% url 'calories:stats' %}?period=30">30 天</a>
+  </div>
+</section>
+
+{% if statistics.recorded_days %}
+  <section class="summary-strip">
+    <div>
+      <span>總熱量</span>
+      <strong>{{ statistics.total_calories }} 大卡</strong>
+    </div>
+    <div>
+      <span>平均每日</span>
+      <strong>{{ statistics.average_daily }} 大卡</strong>
+    </div>
+    <div>
+      <span>記錄天數</span>
+      <strong>{{ statistics.recorded_days }} 天</strong>
+    </div>
+    <div class="total">
+      <span>最高熱量日期</span>
+      <strong>{{ statistics.highest_day.daily_record__date }} / {{ statistics.highest_day.total }} 大卡</strong>
+    </div>
+  </section>
+
+  <section class="stats-grid">
+    <article class="panel">
+      <h2>三餐分布</h2>
+      <ul class="stats-list">
+        {% for meal_type, meal in statistics.meal_totals.items %}
+          <li>
+            <span>{{ meal.label }}</span>
+            <strong>{{ meal.total }} 大卡（{{ meal.percent }}%）</strong>
+          </li>
+        {% endfor %}
+      </ul>
+      {% if statistics.primary_meal %}
+        <p class="highlight">主要熱量來源餐別：{{ statistics.primary_meal.label }}</p>
+      {% endif %}
+    </article>
+
+    <article class="panel">
+      <h2>每日總熱量</h2>
+      <ul class="stats-list">
+        {% for day in statistics.daily_totals %}
+          <li>
+            <span>{{ day.daily_record__date }}</span>
+            <strong>{{ day.total }} 大卡</strong>
+          </li>
+        {% endfor %}
+      </ul>
+    </article>
+  </section>
+{% else %}
+  <section class="panel empty-state">
+    <h1>還沒有統計資料</h1>
+    <p>新增餐點後，這裡會顯示最近 {{ statistics.period }} 天的熱量趨勢。</p>
+    <a class="button" href="{% url 'calories:record_detail' statistics.end_date|date:'Y-m-d' %}">回到今日記錄</a>
+  </section>
+{% endif %}
+{% endblock %}

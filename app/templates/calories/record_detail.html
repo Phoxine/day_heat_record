@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}{{ record_date }} 記錄 - 每日熱量記錄{% endblock %}
+
+{% block content %}
+<section class="toolbar">
+  <div>
+    <p class="eyebrow">目前日期</p>
+    <h1>{{ record_date }}</h1>
+  </div>
+  <div class="date-actions">
+    <a class="button secondary" href="{% url 'calories:record_detail' previous_date %}">前一天</a>
+    <form method="get" action="{% url 'calories:record_detail' record_date|date:'Y-m-d' %}" onsubmit="this.action='/records/' + this.elements.date.value + '/';">
+      <label class="sr-only" for="date-picker">選擇日期</label>
+      <input id="date-picker" type="date" name="date" value="{{ record_date|date:'Y-m-d' }}">
+      <button type="submit">前往</button>
+    </form>
+    <a class="button secondary" href="{% url 'calories:record_detail' next_date %}">後一天</a>
+  </div>
+</section>
+
+<section class="summary-strip">
+  <div>
+    <span>早餐</span>
+    <strong>{{ meal_totals.breakfast }} 大卡</strong>
+  </div>
+  <div>
+    <span>午餐</span>
+    <strong>{{ meal_totals.lunch }} 大卡</strong>
+  </div>
+  <div>
+    <span>晚餐</span>
+    <strong>{{ meal_totals.dinner }} 大卡</strong>
+  </div>
+  <div class="total">
+    <span>當日總熱量</span>
+    <strong>{{ total_calories }} 大卡</strong>
+  </div>
+</section>
+
+<section class="panel">
+  <h2>新增餐點</h2>
+  <form method="post" action="{% url 'calories:add_entry' record_date|date:'Y-m-d' %}" class="entry-form" novalidate>
+    {% csrf_token %}
+    {% for field in entry_form %}
+      <div class="field">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% for error in field.errors %}
+          <p class="field-error">{{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    <button type="submit">新增</button>
+  </form>
+</section>
+
+<section class="meal-grid">
+  {% for meal_type, meal in entries_by_meal.items %}
+    <article class="meal-card">
+      <header>
+        <h2>{{ meal.label }}</h2>
+        <strong>{{ meal.total }} 大卡</strong>
+      </header>
+      {% if meal.entries %}
+        <ul class="entry-list">
+          {% for entry in meal.entries %}
+            <li>
+              {% if edit_entry_id == entry.id %}
+                <form method="post" action="{% url 'calories:edit_entry' entry.id %}" class="inline-edit" novalidate>
+                  {% csrf_token %}
+                  {{ edit_form.food_name }}
+                  {{ edit_form.calories }}
+                  <button type="submit">儲存</button>
+                </form>
+              {% else %}
+                <span class="food-name">{{ entry.food_name }}</span>
+                <span class="calories">{{ entry.calories }} 大卡</span>
+                <form method="post" action="{% url 'calories:delete_entry' entry.id %}">
+                  {% csrf_token %}
+                  <button class="danger" type="submit">刪除</button>
+                </form>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p class="empty">這個餐別還沒有記錄，可以從上方新增。</p>
+      {% endif %}
+    </article>
+  {% endfor %}
+</section>
+{% endblock %}
