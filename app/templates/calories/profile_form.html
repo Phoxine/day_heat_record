@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}個人資料 - 每日熱量記錄{% endblock %}
+
+{% block content %}
+<section class="panel narrow">
+  <h1>{% if profile %}編輯個人資料{% else %}建立個人資料{% endif %}</h1>
+  <p class="muted">請輸入基本資料，之後就能開始記錄每天的熱量。</p>
+
+  <form method="post" class="stacked-form" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="field">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% for error in field.errors %}
+          <p class="field-error">{{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endfor %}
+    {% if form.non_field_errors %}
+      <div class="field-error">{{ form.non_field_errors }}</div>
+    {% endif %}
+    <button type="submit">儲存資料</button>
+  </form>
+</section>
+{% endblock %}

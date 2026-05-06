@@ -57,3 +57,14 @@ docker compose exec web python manage.py test
 5. 切換到另一個日期並新增記錄，確認不同日期資料不混合。
 6. 修改與刪除餐點，確認小計與總計更新。
 7. 前往統計頁，確認最近 7 天與最近 30 天統計正確。
+
+## Verification Results
+
+2026-05-06 已完成以下驗證：
+
+- `docker compose build`：通過。
+- `docker compose up -d db`：通過，PostgreSQL service 顯示 healthy。
+- `docker compose up -d web`：通過，Django service 映射到 `http://localhost:8000`。
+- `docker compose exec web python manage.py migrate`：通過，已套用 admin、auth、calories、contenttypes、sessions migrations。
+- `docker compose exec web python manage.py test`：通過，14 個測試全部成功。
+- `python3 -m py_compile ...`：通過，主要 Python 檔案語法檢查成功。

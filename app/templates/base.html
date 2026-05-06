@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}每日熱量記錄{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'calories/styles.css' %}">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="{% url 'calories:home' %}">每日熱量記錄</a>
+    <nav class="site-nav" aria-label="主要導覽">
+      <a href="{% url 'calories:home' %}">記錄</a>
+      <a href="{% url 'calories:profile' %}">個人資料</a>
+      <a href="{% url 'calories:stats' %}">統計</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    {% if messages %}
+      <section class="messages" aria-label="系統訊息">
+        {% for message in messages %}
+          <p class="message {{ message.tags }}">{{ message }}</p>
+        {% endfor %}
+      </section>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
