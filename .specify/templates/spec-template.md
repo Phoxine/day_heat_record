@@ -5,6 +5,9 @@
 **Status**: Draft  
 **Input**: User description: "$ARGUMENTS"
 
+**語言**: 本規格的敘述、需求、驗收條件與使用者可見文案 MUST 使用正體中文。
+技術名稱、API、套件、路徑與命令可保留原文。
+
 ## User Scenarios & Testing *(mandatory)*
 
 <!--
@@ -19,6 +22,8 @@
   - Deployed independently
   - Demonstrated to users independently
 -->
+
+> 每個使用者故事 MUST 能獨立測試。P1 MUST 單獨構成可展示、可驗證的 MVP。
 
 ### User Story 1 - [Brief Title] (Priority: P1)
 
@@ -94,6 +99,19 @@
 
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
 - **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
+
+### UI/UX Requirements *(面向使用者時必填)*
+
+- **UX-001**: 介面 MUST 以清楚的正體中文支援主要使用者任務。
+- **UX-002**: 介面 MUST 定義載入、空狀態、錯誤與成功狀態。
+- **UX-003**: 介面 MUST 在目標桌面與行動尺寸保持可讀、可操作。
+- **UX-004**: 錯誤訊息 MUST 告訴使用者發生什麼事，以及可以採取什麼行動。
+
+### MVP Boundary *(mandatory)*
+
+- **MVP Scope**: [可展示且可測試的最小完整 P1 切片]
+- **Out of Scope for MVP**: [為避免 over design 而刻意延後的能力]
+- **Validation Method**: [證明 MVP 可交付的自動化測試或手動驗證]
 
 ### Key Entities *(include if feature involves data)*
 

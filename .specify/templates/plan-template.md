@@ -29,9 +29,18 @@
 
 ## Constitution Check
 
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
+*GATE: MUST pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- **正體中文**: 規格、計畫、任務、使用者可見文案與說明 MUST 使用正體中文；
+  API、套件、路徑、命令與識別字可保留原文。
+- **P1 MVP**: P1 使用者故事 MUST 能單獨交付、展示與驗證。P2/P3 MUST 不阻塞
+  P1 完成。
+- **可被測試**: 每個使用者故事 MUST 有獨立驗證方式；核心邏輯、資料轉換、
+  錯誤處理與主要流程 MUST 有自動化測試或明確手動驗證。
+- **UI/UX 友善**: 任何 UI MUST 說明主要任務、狀態、錯誤處理與響應式行為；
+  介面不得遮擋、重疊或截斷重要內容。
+- **避免過度設計**: 新增框架、抽象、泛用元件或複雜狀態管理 MUST 有目前需求
+  支撐；違反時 MUST 在 Complexity Tracking 記錄。
 
 ## Project Structure
 
@@ -100,5 +109,5 @@ directories captured above]
 
 | Violation | Why Needed | Simpler Alternative Rejected Because |
 |-----------|------------|-------------------------------------|
-| [e.g., 4th project] | [current need] | [why 3 projects insufficient] |
-| [e.g., Repository pattern] | [specific problem] | [why direct DB access insufficient] |
+| [例：新增跨層抽象] | [目前需求] | [較簡單方案不可行原因] |
+| [例：額外狀態管理框架] | [具體問題] | [本地狀態或既有工具不足原因] |

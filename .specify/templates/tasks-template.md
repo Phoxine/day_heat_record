@@ -8,7 +8,12 @@ description: "Task list template for feature implementation"
 **Input**: Design documents from `/specs/[###-feature-name]/`
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
-**Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
+**Tests**: 每個使用者故事 MUST 有可執行的驗證任務。核心邏輯、資料轉換、
+錯誤處理與主要使用者流程 MUST 優先加入自動化測試；若不加入，任務 MUST
+寫明手動驗證步驟與風險。
+
+**語言**: 任務描述、檢查點與交付說明 MUST 使用正體中文；路徑、命令、
+API、套件與識別字可保留原文。
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -79,9 +84,9 @@ Examples of foundational tasks (adjust based on your project):
 
 **Independent Test**: [How to verify this story works on its own]
 
-### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
+### Tests / Verification for User Story 1 ⚠️
 
-> **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
+> **NOTE: 自動化測試應先寫並確認會失敗；若採手動驗證，必須列出明確步驟與預期結果。**
 
 - [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
 - [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
@@ -156,6 +161,9 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation
+- [ ] TXXX 確認所有使用者可見文案使用正體中文
+- [ ] TXXX 驗證 UI 狀態、響應式行為與主要任務可用性
+- [ ] TXXX 移除或記錄任何非 MVP 必需的複雜度
 
 ---
 
@@ -179,6 +187,7 @@ Examples of foundational tasks (adjust based on your project):
 ### Within Each User Story
 
 - Tests (if included) MUST be written and FAIL before implementation
+- 每個使用者故事都 REQUIRED 有驗證任務
 - Models before services
 - Services before endpoints
 - Core implementation before integration
@@ -249,3 +258,4 @@ With multiple developers:
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence
+- Avoid: over design、未使用抽象、非 MVP 依賴，以及未翻譯的使用者可見文字
