@@ -1,0 +1,628 @@
+{
+  "version": "2.11",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": -17,
+      "y": 664,
+      "name": "MealEntry Add",
+      "clip": true,
+      "width": 800,
+      "height": 600,
+      "fill": "#FFFFFF",
+      "layout": "none"
+    },
+    {
+      "type": "frame",
+      "id": "c5rZuf",
+      "x": 0,
+      "y": 0,
+      "name": "Input",
+      "reusable": true,
+      "width": "fill_container(0)",
+      "layout": "vertical",
+      "gap": 4,
+      "children": [
+        {
+          "type": "text",
+          "id": "ul7hL",
+          "name": "inputLabel",
+          "fill": "#333333",
+          "content": "Label",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        },
+        {
+          "type": "frame",
+          "id": "Vhs71",
+          "name": "inputField",
+          "width": "fill_container",
+          "height": 40,
+          "fill": "#ffffff",
+          "cornerRadius": 4,
+          "stroke": {
+            "thickness": 1,
+            "fill": "#cccccc"
+          },
+          "padding": [
+            0,
+            12
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "d3yaV",
+              "name": "inputText",
+              "fill": "#999999",
+              "content": "Placeholder",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "SYxvE",
+      "x": 0,
+      "y": 0,
+      "name": "Card",
+      "reusable": true,
+      "width": "fill_container(0)",
+      "fill": "#ffffff",
+      "cornerRadius": 8,
+      "stroke": {
+        "thickness": 1,
+        "fill": "#e0e0e0"
+      },
+      "layout": "vertical",
+      "gap": 12,
+      "padding": 16,
+      "children": [
+        {
+          "type": "text",
+          "id": "DYRZU",
+          "name": "cardTitle",
+          "fill": "#333333",
+          "content": "Card Title",
+          "fontFamily": "Inter",
+          "fontSize": 18,
+          "fontWeight": "600"
+        },
+        {
+          "type": "text",
+          "id": "t2YgWn",
+          "name": "cardContent",
+          "fill": "#666666",
+          "content": "Card content",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "normal"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "y3qPe",
+      "x": -17,
+      "y": 0,
+      "name": "Profile Page",
+      "width": 800,
+      "height": 600,
+      "fill": "#f8f9fa",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 32,
+      "children": [
+        {
+          "type": "text",
+          "id": "fFIX8",
+          "name": "profileTitle",
+          "fill": "#333333",
+          "content": "建立個人資料",
+          "fontFamily": "Inter",
+          "fontSize": 24,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "JCKXZ",
+          "name": "profileForm",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "children": [
+            {
+              "id": "o2HUs",
+              "type": "ref",
+              "ref": "c5rZuf",
+              "name": "nameInput",
+              "descendants": {
+                "ul7hL": {
+                  "content": "名字"
+                }
+              }
+            },
+            {
+              "id": "Envdp",
+              "type": "ref",
+              "ref": "c5rZuf",
+              "name": "heightInput",
+              "descendants": {
+                "ul7hL": {
+                  "content": "身高 (cm)"
+                }
+              }
+            },
+            {
+              "id": "sKHnG",
+              "type": "ref",
+              "ref": "c5rZuf",
+              "name": "weightInput",
+              "descendants": {
+                "ul7hL": {
+                  "content": "體重 (kg)"
+                }
+              }
+            },
+            {
+              "id": "veDWV",
+              "type": "ref",
+              "ref": "c5rZuf",
+              "name": "ageInput",
+              "descendants": {
+                "ul7hL": {
+                  "content": "年齡"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "OLwS8",
+              "name": "submitButton",
+              "fill": "#007bff",
+              "cornerRadius": 8,
+              "gap": 8,
+              "padding": [
+                12,
+                24
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "NjFnm",
+                  "name": "buttonText",
+                  "fill": "#ffffff",
+                  "content": "儲存",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "NNXHp",
+      "x": 900,
+      "y": 0,
+      "name": "Record Page",
+      "width": 800,
+      "height": 600,
+      "fill": "#f8f9fa",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 32,
+      "children": [
+        {
+          "type": "frame",
+          "id": "DuN0L",
+          "name": "recordHeader",
+          "width": "fill_container",
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "hDMm4",
+              "name": "recordTitle",
+              "fill": "#333333",
+              "content": "2024-05-07 記錄",
+              "fontFamily": "Inter",
+              "fontSize": 24,
+              "fontWeight": "600"
+            },
+            {
+              "type": "text",
+              "id": "PkoCQ",
+              "name": "totalCalories",
+              "fill": "#007bff",
+              "content": "總熱量: 0 kcal",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "tM4qP",
+          "name": "mealsContainer",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "children": [
+            {
+              "id": "bLGJP",
+              "type": "ref",
+              "ref": "SYxvE",
+              "name": "breakfastCard",
+              "descendants": {
+                "DYRZU": {
+                  "content": "早餐"
+                },
+                "t2YgWn": {
+                  "content": "小計: 0 kcal"
+                }
+              }
+            },
+            {
+              "id": "JIf6g",
+              "type": "ref",
+              "ref": "SYxvE",
+              "name": "lunchCard",
+              "descendants": {
+                "DYRZU": {
+                  "content": "午餐"
+                },
+                "t2YgWn": {
+                  "content": "小計: 0 kcal"
+                }
+              }
+            },
+            {
+              "id": "u69JaL",
+              "type": "ref",
+              "ref": "SYxvE",
+              "name": "dinnerCard",
+              "descendants": {
+                "DYRZU": {
+                  "content": "晚餐"
+                },
+                "t2YgWn": {
+                  "content": "小計: 0 kcal"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "riYvJ",
+      "x": 1800,
+      "y": 0,
+      "name": "Stats Page",
+      "width": 800,
+      "height": 600,
+      "fill": "#f8f9fa",
+      "layout": "vertical",
+      "gap": 24,
+      "padding": 32,
+      "children": [
+        {
+          "type": "text",
+          "id": "aUsyd",
+          "name": "statsTitle",
+          "fill": "#333333",
+          "content": "統計資訊",
+          "fontFamily": "Inter",
+          "fontSize": 24,
+          "fontWeight": "600"
+        },
+        {
+          "type": "frame",
+          "id": "VhJJ4",
+          "name": "periodSelector",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "t2zuQW",
+              "name": "period7",
+              "fill": "#007bff",
+              "cornerRadius": 8,
+              "gap": 8,
+              "padding": [
+                12,
+                24
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "jw8Oz",
+                  "name": "buttonText",
+                  "fill": "#ffffff",
+                  "content": "7 天",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "E1vRW",
+              "name": "period30",
+              "fill": "#007bff",
+              "cornerRadius": 8,
+              "gap": 8,
+              "padding": [
+                12,
+                24
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "A88L6",
+                  "name": "buttonText",
+                  "fill": "#ffffff",
+                  "content": "30 天",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DBluF",
+          "name": "statsGrid",
+          "width": "fill_container",
+          "gap": 16,
+          "children": [
+            {
+              "type": "frame",
+              "id": "MMkMo",
+              "name": "statsLeft",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "id": "t2oLSA",
+                  "type": "ref",
+                  "ref": "SYxvE",
+                  "name": "totalCard",
+                  "descendants": {
+                    "DYRZU": {
+                      "content": "總熱量"
+                    },
+                    "t2YgWn": {
+                      "content": "0 kcal"
+                    }
+                  }
+                },
+                {
+                  "id": "dL0cQ",
+                  "type": "ref",
+                  "ref": "SYxvE",
+                  "name": "avgCard",
+                  "descendants": {
+                    "DYRZU": {
+                      "content": "平均每日"
+                    },
+                    "t2YgWn": {
+                      "content": "0 kcal"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lunA7",
+              "name": "statsRight",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "id": "IZSC6",
+                  "type": "ref",
+                  "ref": "SYxvE",
+                  "name": "breakfastStats",
+                  "descendants": {
+                    "DYRZU": {
+                      "content": "早餐"
+                    },
+                    "t2YgWn": {
+                      "content": "0 kcal"
+                    }
+                  }
+                },
+                {
+                  "id": "KLPp6",
+                  "type": "ref",
+                  "ref": "SYxvE",
+                  "name": "lunchStats",
+                  "descendants": {
+                    "DYRZU": {
+                      "content": "午餐"
+                    },
+                    "t2YgWn": {
+                      "content": "0 kcal"
+                    }
+                  }
+                },
+                {
+                  "id": "q7b5A",
+                  "type": "ref",
+                  "ref": "SYxvE",
+                  "name": "dinnerStats",
+                  "descendants": {
+                    "DYRZU": {
+                      "content": "晚餐"
+                    },
+                    "t2YgWn": {
+                      "content": "0 kcal"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "cAVCm",
+      "x": 0,
+      "y": 700,
+      "name": "Add Meal Form",
+      "reusable": true,
+      "width": "fill_container(0)",
+      "layout": "vertical",
+      "gap": 16,
+      "children": [
+        {
+          "type": "frame",
+          "id": "ExYXq",
+          "name": "mealTypeSelector",
+          "gap": 8,
+          "children": [
+            {
+              "type": "frame",
+              "id": "jtaPL",
+              "name": "breakfastBtn",
+              "fill": "#007bff",
+              "cornerRadius": 8,
+              "gap": 8,
+              "padding": [
+                12,
+                24
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qT4iH",
+                  "name": "buttonText",
+                  "fill": "#ffffff",
+                  "content": "早餐",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "hXffd",
+              "name": "lunchBtn",
+              "fill": "#007bff",
+              "cornerRadius": 8,
+              "gap": 8,
+              "padding": [
+                12,
+                24
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tYMo8",
+                  "name": "buttonText",
+                  "fill": "#ffffff",
+                  "content": "午餐",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Qg8ZH",
+              "name": "dinnerBtn",
+              "fill": "#007bff",
+              "cornerRadius": 8,
+              "gap": 8,
+              "padding": [
+                12,
+                24
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "yAsGK",
+                  "name": "buttonText",
+                  "fill": "#ffffff",
+                  "content": "晚餐",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "g5kIGC",
+          "type": "ref",
+          "ref": "c5rZuf",
+          "name": "foodInput",
+          "descendants": {
+            "ul7hL": {
+              "content": "食物名稱"
+            }
+          }
+        },
+        {
+          "id": "zoU3V",
+          "type": "ref",
+          "ref": "c5rZuf",
+          "name": "caloriesInput",
+          "descendants": {
+            "ul7hL": {
+              "content": "熱量 (kcal)"
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "X9MJcW",
+          "name": "addBtn",
+          "fill": "#007bff",
+          "cornerRadius": 8,
+          "gap": 8,
+          "padding": [
+            12,
+            24
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "H4m7G",
+              "name": "buttonText",
+              "fill": "#ffffff",
+              "content": "新增",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "500"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
